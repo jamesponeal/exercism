@@ -6,14 +6,17 @@
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-  if(input.includes('!')){
-    var string = "Whoa, chill out!"
-  } else if(input.includes('?')){
-    var string = "Sure."
+  if(input.match(/[A-Za-z0-9?!]/) == null){
+    var string = "Fine. Be that way!"
+  } else if(input.match(/[A-Za-z]/) == null && input.includes('?') == false){
+    var string = "Whatever.";
+  } else if (input == input.toUpperCase() && input.match(/[A-Za-z]/) != null){
+    var string = "Whoa, chill out!";
+  } else if (input[input.length-1] == '?'){
+    var string = "Sure.";
   } else {
     var string = "Whatever.";
   }
-
   return string;
 };
 
