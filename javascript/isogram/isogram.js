@@ -1,16 +1,20 @@
 var Isogram = function(word){
   this.word = word;
+  // cleanWord : function(inputWord){
+  //   var firstClean = inputWord.replace(/[@.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+  //   var secondClean = firstClean.replace(/\s+/g,"");
+  //   return secondClean.toLowerCase().split("");
+  // };
 };
 
-function cleanWord(inputWord){
+function prepareWord(inputWord){
   var firstClean = inputWord.replace(/[@.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
   var secondClean = firstClean.replace(/\s+/g,"");
-  return secondClean;
+  return secondClean.toLowerCase().split("");
 };
 
 Isogram.prototype.isIsogram = function(){
-  var cleaned = cleanWord(this.word)
-  var arrayOfLetters = cleaned.toLowerCase().split("");
+  var arrayOfLetters = prepareWord(this.word);
   var letterCount = {};
   var isogram = true;
   for(var i = 0; i < arrayOfLetters.length; i++){
