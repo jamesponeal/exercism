@@ -1,7 +1,7 @@
 class HelloWorld
 
-  def hello
-    return "Hello, World!"
+  def self.hello(name = "World")
+    return "Hello, #{name}!"
   end
 
 end
